@@ -21,7 +21,7 @@ body{
 .form-box{
   position:relative;
   width: 400px;
-  height:  550px;
+  height:  600px;
   border: 2px solid rgba(255,255,255,.5);
   border-radius: 20px;
   backdrop-filter: blur(15px);
@@ -33,14 +33,14 @@ body{
 .form-box h2{
   color:#fff;
   text-align: center;
-  font-size: 32px;
+  font-size: 25px;
 
 }
 .form-box .input-box{
   position:relative;
   margin: 30px 0;
-  width: 310px;
-  border-bottom: 2px solid #fff;
+  width: 300px;
+  border-bottom: 1px solid #fff;
 
 }
 .form-box .input-box input{
@@ -68,13 +68,13 @@ input::placeholder{
   color: #fff;
   background: blue;
   width: 100%;
-  height: 50px;
+  height: 30px;
   border-radius: 5px;
   outline: none;
   border: none;
   font-size: 17px;
   cursor: pointer;
-  box-shadow: 3px 0 10px rgba(0,0,0,.5);
+  box-shadow: 3px 0 10px rgba(255, 249, 249, 0.795);
 
 }
 .group{
@@ -86,19 +86,32 @@ input::placeholder{
 .group1{
   
   display: flex;
+  align-items: center;
   justify-content:center;
+  margin-top: 20px;
+  
 
 }
-.group span a,.group1 span a{
+.group span a{
   color: #fff;
   position: relative;
   top: 20px; 
   text-decoration: none;
   font-weight: 500;
-
+  border-radius: 5px;
+  background: blue;
+  width: 100%;
+  height: 30px;
+  outline: none;
+  cursor: pointer;
+  padding: 3px;
 }
 .group a:focus,.group1 a:focus{
   text-decoration: underline;
+}
+.group1 a{
+  color: #fff;
+  
 }
 #result{
   color: red;
@@ -109,7 +122,7 @@ input::placeholder{
 }
 .popup{
   display:inline;
-  width: ;
+  width: ; ;
   background-color: #fff;
   border-radius: 6px;
   position: absolute;
@@ -119,3 +132,39 @@ input::placeholder{
   transform: translate(-50%,-50%)scale(1);
   text-align: center;
 }
+.or,p{
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: sans-serif;
+
+}
+#cgenerate{
+  background-color: rgb(218, 220, 226,.6);
+  width: 80%;
+  height: 80%;
+  border-radius: 5px;
+  padding: 5px;
+   
+}
+#check{
+  
+  width: 80%;
+  height: 30%;
+  margin: 10px;
+  padding: 5px;
+  border-radius: ;
+  color: rgb(252, 244, 244);
+ 
+}
+.captcha i{
+  font-size:20px;
+  display:relative;
+  top: 0;
+  
+  
+}
+ 
+ 

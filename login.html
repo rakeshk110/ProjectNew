@@ -3,54 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login page</title>
     <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <div class="container">
         <div class="form-box">
           <form action="" name="Formfill" onsubmit="return validation()">
+            <!-- <div class="group2">
+        
+              <span id="registerbtn"> <a href="index.html">Register</a>  </span>
+               
+            </div> -->
+         
             <h2>Login</h2>
             <p id="result"></p>
             <div class="input-box">
-              <i class='bx bxs-user'></i>
-              <input type="text" name="Username" placeholder="Username">
-      
-      
-            </div>
-            <div class="input-box">
               <i class='bx bxs-envelope'></i>
               <input type="email" name="Email" placeholder="Email">
-      
-      
             </div>
+            
             <div class="input-box">
               <i class='bx bxs-lock-alt'></i>
-              <input type="password"name="Password" placeholder="Password">
-      
-      
+              <input type="password" name="Password" placeholder="Password">
             </div>
             <div class="input-box">
-              <i class='bx bxs-lock-alt'></i>
-              <input type="password" name="cPassword" placeholder="Confirm Password">
-      
-      
-      
+              <div class="captcha">
+                <button id="captchabtn"><i class='bx bx-refresh'></i></button>
+                <input type="text" name="captchagenerete" id="cgenerate" readonly>
+              </div>
+              <div class="inputcaptcha">
+                <div class="checkCaptcha">
+                  <input type="text" name="checkcaptcha" id="check" placeholder="Enter Captcha">
+                </div>
+              </div>
             </div>
+
             <div class="button">
               <input type="submit" class="btn" value="Login">
             </div>
             <div class="group1">
-              <span> <a href="#">Forget-Password</a>  </span>
-              <!-- <span> <a href="#">Login</a>  </span> -->
-               
+              <span><a href="#">Forget-Password</a></span>
             </div>
-      
           </form>
         </div>
-        
-      </div>
-    
+    </div>
+
+    <script>
+    // Event listener to generate captcha on refresh button click
+    document.getElementById("captchabtn").addEventListener('click', function(event) {
+        event.preventDefault();  
+        generateCaptcha();  
+    });
+
+    // Function to generate captcha
+    function generateCaptcha() {
+        let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+        let captchaLength = 6;
+        let captcha = "";
+
+        for (let i = 0; i < captchaLength; i++) {
+            let randomIndex = Math.floor(Math.random() * chars.length);
+            captcha += chars.charAt(randomIndex);
+        }
+
+        document.getElementById("cgenerate").value = captcha;  
+        document.getElementById("check").value = "";  // Clear the captcha input field
+    }
+
+    // Generate captcha on page load
+    window.onload = generateCaptcha;
+
+    // Validation function
+    function validation() {
+        const captcha = document.getElementById("cgenerate").value;
+        const userCaptcha = document.getElementById("check").value;
+        const email = document.Formfill.Email.value.trim();
+        const password = document.Formfill.Password.value.trim();
+        const resultElement = document.getElementById("result");
+
+        // Validate email
+        if (email === "") {
+            resultElement.innerHTML = "Enter Your Email";
+            return false;
+        }
+
+        // Validate password
+        if (password === "") {
+            resultElement.innerHTML = "Enter Your Password";
+            return false;
+        }
+
+        // Ensure password has minimum length
+        if (password.length < 6) {
+            resultElement.innerHTML = "Password must be at least 6 characters";
+            return false;
+        }
+
+        // Validate captcha
+        if (userCaptcha === "") {
+            resultElement.innerHTML = "Please enter the captcha.";
+            return false;
+        }
+
+        // Check if captcha matches
+        if (captcha !== userCaptcha) {
+            resultElement.innerHTML = "Captcha does not match.";
+            return false;
+        }
+
+        // Successful login message
+        resultElement.innerHTML = "Login successful.";
+        return true;
+    }
+    </script>
 </body>
 </html>

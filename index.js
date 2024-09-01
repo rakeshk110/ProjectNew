@@ -1,36 +1,33 @@
-function validation(){
-    if(document.Formfill.Username.value==""){
-        document.getElementById("result").innerHTML="Enter Username";
-        return false;
+function validation() {
+    const firstName = document.Formfill.FirstName.value.trim();
+    const lastName = document.Formfill.LastName.value.trim();
+    const email = document.Formfill.Email.value.trim();
+    const password = document.Formfill.Password.value.trim();
+    const resultElement = document.getElementById("result");
+
+    if (firstName === "") {
+      resultElement.innerHTML = "Enter First Name";
+      return false;
+    }
+    if (lastName === "") {
+      resultElement.innerHTML = "Enter Last Name";
+      return false;
+    }
+    if (email === "") {
+      resultElement.innerHTML = "Enter Your Email";
+      return false;
+    }
+    if (password === "") {
+      resultElement.innerHTML = "Enter Your Password";
+      return false;
+    }
+    if (password.length < 6) {
+      resultElement.innerHTML = "Password must be at least 6 characters";
+      return false;
     }
 
-    else if(document.Formfill.Username.value.length<6){
-        document.getElementById("result").innerHTML="Atleat six letter";
-        return false;
-    }
-
-    else if(document.Formfill.Email.value==""){
-        document.getElementById("result").innerHTML="Enter Your Email";
-        return false;
-    }
-
-    else if(document.Formfill.Password.value==""){
-        document.getElementById("result").innerHTML="Enter Your password";
-        return false;
-    }
-    else if(document.Formfill.Password.value.length<6){
-        document.getElementById("result").innerHTML="Password must be 6-digits";
-        return false;
-    }
-    else if(document.Formfill.cPassword.value==""){
-        document.getElementById("result").innerHTML="Enter Your Confirm password";
-        return false;
-    }
-
-    
-    else if(document.Formfill.Password.value!==document.Formfill.cPassword.value){
-        document.getElementById("result").innerHTML="Password does'nt matched";
-        return false;
-    }
-    
-}
+    // If everything is valid
+    resultElement.innerHTML = "All fields are valid";
+    return true; // Submit the form
+  }
+          

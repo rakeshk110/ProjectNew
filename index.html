@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>project</title>
+  <title>Register</title>
   <link rel="stylesheet" href="style.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'
 </head>
@@ -15,25 +15,26 @@
       <p id="result"></p>
       <div class="input-box">
         <i class='bx bxs-user'></i>
-        <input type="text" name="Username" placeholder="Username">
+        <input type="text" name="FirstName" placeholder="First Name">
 
 
       </div>
       <div class="input-box">
-        <i class='bx bxs-envelope'></i>
-        <input type="email" name="Email" placeholder="Email">
+        <i class='bx bxs-user'></i>
+        <!-- <i class='bx bxs-envelope'></i> -->
+        <input type="text" name="LastName" placeholder="Last Name">
+
+
+      </div>
+      <div class="input-box">
+           <i class='bx bxs-envelope'></i>
+        <input type="email"name="Email" placeholder="Email">
 
 
       </div>
       <div class="input-box">
         <i class='bx bxs-lock-alt'></i>
-        <input type="password"name="Password" placeholder="Password">
-
-
-      </div>
-      <div class="input-box">
-        <i class='bx bxs-lock-alt'></i>
-        <input type="password" name="cPassword" placeholder="Confirm Password">
+        <input type="password" name="Password" placeholder="Password">
 
 
 
@@ -41,19 +42,24 @@
       <div class="button">
         <input type="submit" class="btn" value="Register">
       </div>
+      <p class="or">or</p>
+      <div class="icons">
+        <i class="fab fa-google"></i>
+        <i class="fab fa-microsoft"></i>
+      </div>
+      <div class="link1">
+        <p>Already Have Account ?</p>
+      </div>
       <div class="group">
-        <!-- <span> <a href="#">Forget-Password</a>  </span> -->
+        
         <span> <a href="login.html">Login</a>  </span>
          
       </div>
+   
 
     </form>
   </div>
-  <!-- <div class="popup" id="popup">
-  
-    <p> Thanks you! Your were Registeration Sucessfully.</p>
-    
-  </div> -->
+ 
 </div>
   <script src="index.js"></script>
 </body>
